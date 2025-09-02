@@ -1,18 +1,17 @@
+const red = document.getElementById('red');
+const blue = document.getElementById('blue');
+const green = document.getElementById('green');
+const check = document.getElementById('check');
 
-const red = document.getElementById('red')
-const blue = document.getElementById('blue')
-const green = document.getElementById('green')
-const check = document.getElementById('check')
+let list = [red, blue, green, check];
 
-let list = [red, blue, green, check]
-let i = 0
+console.log("What the fuck gpt");
 
-console.log("What the fuck gpt")
-
-while(i < list[len]) {
+// Use for loop instead of while for clarity
+for (let i = 0; i < list.length; i++) {
+  const now = list[i];
   
-  now = list[i]
-  now.addEventListener('click' ( ) => {
-      console.log(i)
+  now.addEventListener('click', () => {
+    console.log(i);
   });
-  }
+}
