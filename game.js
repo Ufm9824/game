@@ -7,8 +7,10 @@ const check = document.getElementById('check')
 let list = [red, blue, green, check]
 let i = 0
 
-while(i < list[len]) {
+console.log("What the fuck gpt")
 
+while(i < list[len]) {
+  
   now = list[i]
   now.addEventListener('click' ( ) => {
       console.log(i)
