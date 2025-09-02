@@ -3,7 +3,7 @@ const Blue = document.getElementById('blue');
 const Green = document.getElementById('green');
 const check = document.getElementById('check');
 
-let list = [red, blue, green, check];
+let list = [Red, Blue, Green, check];
 
 console.log("What the fuck gpt");
 
