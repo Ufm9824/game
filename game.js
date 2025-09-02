@@ -1,6 +1,6 @@
-const red = document.getElementById('red');
-const blue = document.getElementById('blue');
-const green = document.getElementById('green');
+const Red = document.getElementById('red');
+const Blue = document.getElementById('blue');
+const Green = document.getElementById('green');
 const check = document.getElementById('check');
 
 let list = [red, blue, green, check];
