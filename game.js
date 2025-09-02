@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const Green = document.getElementById('Green');
   const check = document.getElementById('check');
 
-  let version = 1.2
+  let version = 1.3
   ver.textContent = version;
   
   let list = [Red, Blue, Green, check];
