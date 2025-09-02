@@ -1,13 +1,12 @@
 #ver {
   position: fixed;       /* Fix it relative to the viewport */
   bottom: 10px;          /* 10px from the bottom */
-  left: 50%;             /* Center horizontally */
+  left: 0px;             /* Center horizontally */
   transform: translateX(-50%);
   background: white;     /* Optional: background color for readability */
   padding: 5px 10px;     /* Optional: some padding */
   border-radius: 5px;    /* Optional: rounded corners */
-  box-shadow: 0 0 5px rgba(0,0,0,0.2); /* Optional: subtle shadow */
   font-weight: bold;
-  font-size: 18px;
+  font-size: 10px;
   z-index: 1000;         /* Make sure it’s on top */
 }
