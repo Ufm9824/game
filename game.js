@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
-  const Red = document.getElementById('red');
-  const Blue = document.getElementById('blue');
-  const Green = document.getElementById('green');
+  const Red = document.getElementById('Red');
+  const Blue = document.getElementById('Blue');
+  const Green = document.getElementById('Green');
   const check = document.getElementById('check');
 
   let version = 1.0
