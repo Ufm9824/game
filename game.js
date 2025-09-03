@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         yV += 5
     }};
 
-    if( === 50) {
+    if(y  === 50) {
       hJ = 0
       yV = 0
     }
