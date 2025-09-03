@@ -49,12 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function gameLoop() {
 
     if (spacePressed) {
-      if(hJ == 0) {
+      if(hJ === 0) {
         hJ = 1
         yV += 5
     }};
 
-    if( == 50) {
+    if( === 50) {
       hJ = 0
       yV = 0
     }
