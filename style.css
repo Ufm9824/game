@@ -20,3 +20,13 @@
   font-size: 500px;
   z-index: 1000;         /* Make sure it’s on top */
 }
+
+#square {
+      position: absolute;  /* so we can move it */
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      top: 50px;
+      left: 50px;
+      transition: left 0.1s, top 0.1s; /* smooth movement */
+    }
