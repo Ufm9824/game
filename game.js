@@ -47,7 +47,7 @@ function gameLoop(isFirst) {
   requestAnimationFrame(gameLoop)
 }
 
-// <======
+changeFavicon("happy.ico")
   
 requestAnimationFrame(gameLoop)
 });
