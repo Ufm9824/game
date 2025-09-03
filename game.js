@@ -43,11 +43,14 @@ function gameLoop(isFirst) {
   else{
   console.log("Frame: " + i)
   }
+
+  if(event.code === "Space") changeFavicon("jeremy.png")
+  
   i++
   requestAnimationFrame(gameLoop)
 }
 
-changeFavicon("happy.ico")
+changeFavicon("happy.png")
   
 requestAnimationFrame(gameLoop)
 });
