@@ -48,27 +48,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function gameLoop() {
 
-    if (spacePressed) {
-      if(hJ === 0) {
-        hJ = 1
-        yV += 5
-    }};
+if (spacePressed) {
+  if (hJ === 0) {
+    hJ = 1;
+    yV = -10;  // negative for upward jump
+  }
+}
 
-    if(y  === 50) {
-      hJ = 0
-      yV = 0
-    }
+if (y >= 50) {
+  y = 50;
+  hJ = 0;
+  yV = 0;
+}
 
-    if(yV < 0.5) {
-      yv = 0
-    } else {
-      yv -= yv / 3
-    }
+if (Math.abs(yV) < 0.5) {
+  yV = 0;
+} else {
+  yV -= yV / 3;  // slow velocity (friction/drag)
+}
 
-    y += yV
+y += yV;
 
-    square.style.left = x + 'px'
-    square.style.top = y + 'px'
+square.style.left = x + 'px';
+square.style.top = y + 'px';
+
 
     console.log(y)
     console.log(yV)
