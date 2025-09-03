@@ -1,7 +1,7 @@
 #ver {
   position: fixed;       /* Fix it relative to the viewport */
-  bottom: 10px;          /* 10px from the bottom */
-  left: 0px;             /* Center horizontally */
+  bottom: 0px;          /* 10px from the bottom */
+  left: 5px;             /* Center horizontally */
   transform: translateX(-50%);
   background: white;     /* Optional: background color for readability */
   padding: 5px 10px;     /* Optional: some padding */
