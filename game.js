@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const check = document.getElementById('check');
   const square = document.getElementById('square');
   
-  let version = 1.3;
+  let version = 1.4;
   ver.textContent = version;
   
   let list = [Red, Blue, Green, check];
@@ -69,6 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     square.style.left = x + 'px'
     square.style.top = y + 'px'
+
+    console.log(y)
+    console.log(yV)
 
     requestAnimationFrame(gameLoop);
   }
