@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = 1.6;
+  let version = "1.7(beta)";
   ver.textContent = version;
 
   let x = 100
@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if(key.s){
       x+= 10
     }
+
+    x += 5
 
     square.style.left = x + 'px'
     square.style.top = y + 'px'
