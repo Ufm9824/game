@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function dash(x, y) {
 
-    x * 5
-    y * 5
+    x = x * 5;
+    y = y * 5;
   }
   
   function gameLoop() {
