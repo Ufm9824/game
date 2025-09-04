@@ -2,12 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.8(test)";
+  let version = "1.8.1(test)";
   ver.textContent = version;
 
   let x = 100;
   let y = 100;
-
+  let dash = 0
+  
   const key = {};
 
   // When key is pressed, set key[keyName] = true
@@ -50,8 +51,14 @@ document.addEventListener('DOMContentLoaded', () => {
       x += 10;  // D moves RIGHT (x increases)
     }
     if (key.space) {
-      x = x * 5
-      y = y * 5
+      if (dash <= 0) {
+        dash = 5
+      }
+      if (dash > 0) {
+        x = x * 5
+        y = y * 5
+        dash -= 1
+      }
     }
 
     // Update square position
