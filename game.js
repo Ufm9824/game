@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.8.1(test)";
+  let version = "1.8.2(test)";
   ver.textContent = version;
 
   let x = 100;
@@ -29,12 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document.head.appendChild(link);
     }
     link.href = src;
-  }
-
-  function dash(x, y) {
-
-    x = x * 5;
-    y = y * 5;
   }
   
   function gameLoop() {
