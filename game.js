@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.7";
+  let version = "1.8(test)";
   ver.textContent = version;
 
   let x = 100;
@@ -50,7 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
       x += 10;  // D moves RIGHT (x increases)
     }
     if (key.space) {
-      dash(x, y);
+      x = x * 5
+      y = y * 5
     }
 
     // Update square position
