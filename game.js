@@ -30,6 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
     link.href = src;
   }
 
+  function dash(x, y) {
+
+    x * 5
+    y * 5
+  }
+  
   function gameLoop() {
     if (key.w) {
       y -= 10;  // W should move UP (y decreases)
@@ -42,6 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (key.d) {
       x += 10;  // D moves RIGHT (x increases)
+    }
+    if (key.space) {
+      dash(x, y);
     }
 
     // Update square position
