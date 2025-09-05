@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.8.5(test)";
+  let version = "1.8.6(test)";
   ver.textContent = version;
 
   let x = 100;
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     console.log(parseInt(square.style.left), parseInt(square.style.top))
 
-    x = parseInt(square.style.left)
-    y = parseInt(square.style.left)
+    x = parseInt(getComputedStyle(square).left);
+    y = parseInt(getComputedStyle(square).top);
     x = x + xD
     y = y + yD
     
