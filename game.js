@@ -33,33 +33,38 @@ document.addEventListener('DOMContentLoaded', () => {
   
   function gameLoop() {
     
-    x = 0
-    y = 0
+    xD = 0
+    yD = 0
     
     if (key.w) {
-      y -= 10;  // W should move UP (y decreases)
+      yD -= 10;  // W should move UP (y decreases)
     }
     if (key.s) {
-      y += 10;  // S should move DOWN (y increases)
+      yD += 10;  // S should move DOWN (y increases)
     }
     if (key.a) {
-      x -= 10;  // A moves LEFT (x decreases)
+      xD -= 10;  // A moves LEFT (x decreases)
     }
     if (key.d) {
-      x += 10;  // D moves RIGHT (x increases)
+      xD += 10;  // D moves RIGHT (x increases)
     }
     if (key.space) {
       if (dash <= 0) {
         dash = 5
       }
       if (dash > 0) {
-        x = x * 5
-        y = y * 5
+        xD = xD * 5
+        yD = yD * 5
         dash -= 1
       }
     }
 
-    console.log(square.style.left, square.style.top)
+    console.log(parseInt(square.style.left), parseInt(square.style.top))
+
+    x = parseInt(square.style.left)
+    y = parseInt(square.style.left)
+    x = x + xD
+    y = y + yD
     
     // Update square position
     square.style.left = x + 'px';
