@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.8.3(test)";
+  let version = "1.8.4(test)";
   ver.textContent = version;
 
   let x = 100;
@@ -32,6 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   function gameLoop() {
+    
+    x = 0
+    y = 0
+    
     if (key.w) {
       y -= 10;  // W should move UP (y decreases)
     }
@@ -55,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    console.log(square.style.left, square.style.top)
+    
     // Update square position
     square.style.left = x + 'px';
     square.style.top = y + 'px';
