@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
   let version = "1.8.6(test)";
   ver.textContent = version;
 
+  let rotation = 0
+  let up = false
+  let down = false
+  let left = false
+  let right = false
   let x = 100;
   let y = 100;
   let dash = 0
@@ -65,11 +70,42 @@ document.addEventListener('DOMContentLoaded', () => {
     y = parseInt(getComputedStyle(square).top);
     x = x + xD
     y = y + yD
+
+    if(x < 0) {
+      left = true
+    } else {
+      left = false
+    }
+    if(x > 0) {
+      right = false
+    } else {
+      right = false
+    }
+    if(y < 0) {
+      down = true
+    } else {
+      down = false
+    }
+    if(y > 0) {
+      up = true
+    } else {
+      up = false
+    }
+
+    if(left == true) {
+      if(up == true) { rotate = -45 }
+      if(down == true) {rotate = 45}
+    } else {
+      rotate = -90
+    }
     
     // Update square position
     square.style.left = x + 'px';
     square.style.top = y + 'px';
+    square.style.transform = 'rotate(', rotate, 'deg)'
 
+    console.log(square.style.transform)
+    
     requestAnimationFrame(gameLoop);
   }
 
