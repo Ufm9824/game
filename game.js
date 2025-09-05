@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.8.7(test)";
+  let version = "1.8.8(test)";
   ver.textContent = version;
 
   let rotation = 0
@@ -98,12 +98,15 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       rotate = -90
     }
-    
-    // Update square position
+
+    rotation += 5;
+ 
+   
     square.style.left = x + 'px';
     square.style.top = y + 'px';
-    square.style.transform = 'rotate(', rotate, 'deg)'
+    square.style.transform = `rotate(${rotation}deg)`;
 
+    
     console.log(square.style.transform)
     
     requestAnimationFrame(gameLoop);
