@@ -11,14 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const key = {};
 
-  // When key is pressed, set key[keyName] = true
   document.addEventListener('keydown', (e) => {
-    key[e.key.toLowerCase()] = true;
+    const keyName = e.key === ' ' ? 'space' : e.key.toLowerCase();
+    key[keyName] = true;
   });
-
-  // When key is released, set key[keyName] = false
+  
   document.addEventListener('keyup', (e) => {
-    key[e.key.toLowerCase()] = false;
+    const keyName = e.key === ' ' ? 'space' : e.key.toLowerCase();
+    key[keyName] = false;
   });
 
   function changeFavicon(src) {
