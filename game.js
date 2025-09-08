@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.9.6(test)";
+  let version = "1.9.7(test)";
   ver.textContent = version;
   console.log(version)
   
@@ -78,20 +78,26 @@ down = yD > 0;
 // ...previous code remains unchanged
 
 // rotation logic based on directions
-let desiredRotation;
-if (left) {
-  if (up) desiredRotation = -45;
-  else if (down) desiredRotation = -135;
-  else desiredRotation = -90;
-} else if (right) {
-  if (up) desiredRotation = 45;
-  else if (down) desiredRotation = 135;
-  else desiredRotation = 90;
-} else if (up) {
-  desiredRotation = 0;
-} else if (down) {
-  desiredRotation = 180;
+if (xD === 0 && yD === 0) {
+  // Not moving — don't change rotation
+  desiredRotation = rotation; // keep current rotation steady
+} else {
+  // Set desiredRotation based on direction as usual
+  if (left) {
+    if (up) desiredRotation = -45;
+    else if (down) desiredRotation = -135;
+    else desiredRotation = -90;
+  } else if (right) {
+    if (up) desiredRotation = 45;
+    else if (down) desiredRotation = 135;
+    else desiredRotation = 90;
+  } else if (up) {
+    desiredRotation = 0;
+  } else if (down) {
+    desiredRotation = 180;
+  }
 }
+
 
 // Smoothly rotate toward desiredRotation
 const rotationSpeed = 10;
