@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.9.4(test)";
+  let version = "1.9.5(test)";
   ver.textContent = version;
   console.log(version)
   
@@ -36,6 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     link.href = src;
   }
+
+  function normalizeRotation(current, target) {
+  let delta = target - current;
+  
+  while (delta > 180) delta -= 360;
+  while (delta < -180) delta += 360;
+  
+  return current + delta;
+  }
+
   
   function gameLoop() {
     
