@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.9.9(test)";
+  let version = "1.9.91(test)";
   ver.textContent = version;
   console.log(version)
   
@@ -93,22 +93,19 @@ down = yD > 0;
 rotation = mod(rotation, 360);
 
 if (xD === 0 && yD === 0) {
-  desiredRotation = rotation;
+  desiredRotation = rotation; // no movement, keep current rotation
 } else {
-  if (left) {
-    if (up) desiredRotation = 315;    // -45° == 315° mod 360
-    else if (down) desiredRotation = 225;  // -135° == 225°
-    else desiredRotation = 270;      // -90° == 270°
-  } else if (right) {
-    if (up) desiredRotation = 45;
-    else if (down) desiredRotation = 135;
-    else desiredRotation = 90;
-  } else if (up) {
-    desiredRotation = 0;
-  } else if (down) {
-    desiredRotation = 180;
-  }
+  // atan2(y, x) returns radians from -PI to PI, with +x axis at 0 rad
+  // yD is vertical velocity, xD is horizontal velocity
+  let angleRad = Math.atan2(yD, xD); 
+  // Convert to degrees
+  let angleDeg = angleRad * (180 / Math.PI);
+  // atan2 returns angle with 0° at +x axis (right), increasing counterclockwise
+  // We want 0° to be up (-y direction), so adjust:
+  // Up is yD < 0, so subtract 90°
+  desiredRotation = (angleDeg + 90 + 360) % 360; 
 }
+
 
 // Calculate shortest delta
 let delta = shortestAngleDiff(rotation, desiredRotation);
