@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.8.8(test)";
+  let version = "1.8.9(test)";
   ver.textContent = version;
 
   let rotation = 0
