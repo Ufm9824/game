@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.9.1(test)";
+  let version = "1.9.2(test)";
   ver.textContent = version;
 
   let rotation = 0
@@ -74,7 +74,8 @@ if (left) {
 } else if (up) {
   rotation = 0;
 } else if (down) {
-  rotation = 180;
+    if(rotation < 0) { rotation = 180 }
+    else { rotation = -180 }
 }
 
 // update position
