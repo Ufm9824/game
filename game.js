@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.9.7(test)";
+  let version = "1.9.8(test)";
   ver.textContent = version;
   console.log(version)
   
@@ -46,6 +46,22 @@ document.addEventListener('DOMContentLoaded', () => {
   return current + delta;
   }
 
+  function mod(n, m) {
+  return ((n % m) + m) % m;
+  }
+  
+  function shortestAngleDiff(current, target) {
+    current = mod(current, 360);
+    target = mod(target, 360);
+    
+    let delta = target - current;
+    
+    if (delta > 180) delta -= 360;
+    if (delta < -180) delta += 360;
+    
+    return delta;
+  }
+
   
   function gameLoop() {
     
@@ -73,20 +89,16 @@ right = xD > 0;
 up = yD < 0;
 down = yD > 0;
 
-// rotation logic based on directions
-// Calculate your desired rotation based on direction (as before)
-// ...previous code remains unchanged
+// normalize rotation to 0-360
+rotation = mod(rotation, 360);
 
-// rotation logic based on directions
 if (xD === 0 && yD === 0) {
-  // Not moving — don't change rotation
-  desiredRotation = rotation; // keep current rotation steady
+  desiredRotation = rotation;
 } else {
-  // Set desiredRotation based on direction as usual
   if (left) {
-    if (up) desiredRotation = -45;
-    else if (down) desiredRotation = -135;
-    else desiredRotation = -90;
+    if (up) desiredRotation = 315;    // -45° == 315° mod 360
+    else if (down) desiredRotation = 225;  // -135° == 225°
+    else desiredRotation = 270;      // -90° == 270°
   } else if (right) {
     if (up) desiredRotation = 45;
     else if (down) desiredRotation = 135;
@@ -98,18 +110,19 @@ if (xD === 0 && yD === 0) {
   }
 }
 
+// Calculate shortest delta
+let delta = shortestAngleDiff(rotation, desiredRotation);
 
-// Smoothly rotate toward desiredRotation
-const rotationSpeed = 10;
-let delta = desiredRotation - rotation;
-while (delta > 180) delta -= 360;
-while (delta < -180) delta += 360;
+const rotationSpeed = 10; // degrees per frame
 
 if (Math.abs(delta) <= rotationSpeed) {
   rotation = desiredRotation;
 } else {
-  rotation += (delta > 0 ? rotationSpeed : -rotationSpeed);
+  rotation += delta > 0 ? rotationSpeed : -rotationSpeed;
 }
+
+// normalize rotation again so it stays in 0-360
+rotation = mod(rotation, 360);
 
 square.style.transform = `rotate(${rotation}deg)`;
 
