@@ -93,14 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if(left == true) {
-      if(up == true) { rotate = -45 }
-      if(down == true) {rotate = 45}
+      if(up == true) { rotation = -45 }
+      if(down == true) {rotation = 45}
     } else {
-      rotate = -90
+      rotation = -90
     }
-
-    rotation += 5;
- 
    
     square.style.left = x + 'px';
     square.style.top = y + 'px';
