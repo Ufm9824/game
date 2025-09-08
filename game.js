@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let version = "1.9.3(test)";
   ver.textContent = version;
-
+  console.log(version)
+  
   let rotation = 0
   let up = false
   let down = false
