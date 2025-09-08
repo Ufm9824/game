@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.8.9(test)";
+  let version = "1.8";
   ver.textContent = version;
 
   let rotation = 0
@@ -38,71 +38,52 @@ document.addEventListener('DOMContentLoaded', () => {
   
   function gameLoop() {
     
-    xD = 0
-    yD = 0
-    
-    if (key.w) {
-      yD -= 10;  // W should move UP (y decreases)
-    }
-    if (key.s) {
-      yD += 10;  // S should move DOWN (y increases)
-    }
-    if (key.a) {
-      xD -= 10;  // A moves LEFT (x decreases)
-    }
-    if (key.d) {
-      xD += 10;  // D moves RIGHT (x increases)
-    }
-    if (key.space) {
-      if (dash <= 0) {
-        dash = 5
-      }
-      if (dash > 0) {
-        xD = xD * 5
-        yD = yD * 5
-        dash -= 1
-      }
-    }
+// calculate xD, yD (velocity)
+xD = 0;
+yD = 0;
 
-    console.log(parseInt(square.style.left), parseInt(square.style.top))
+if (key.w) yD -= 10;
+if (key.s) yD += 10;
+if (key.a) xD -= 10;
+if (key.d) xD += 10;
 
-    x = parseInt(getComputedStyle(square).left);
-    y = parseInt(getComputedStyle(square).top);
-    x = x + xD
-    y = y + yD
+if (key.space) {
+  if (dash <= 0) dash = 5;
+  if (dash > 0) {
+    xD *= 5;
+    yD *= 5;
+    dash--;
+  }
+}
 
-    if(x < 0) {
-      left = true
-    } else {
-      left = false
-    }
-    if(x > 0) {
-      right = false
-    } else {
-      right = false
-    }
-    if(y < 0) {
-      down = true
-    } else {
-      down = false
-    }
-    if(y > 0) {
-      up = true
-    } else {
-      up = false
-    }
+// set direction flags based on velocity signs
+left = xD < 0;
+right = xD > 0;
+up = yD < 0;
+down = yD > 0;
 
-    if(left == true) {
-      if(up == true) { rotation = -45 }
-      if(down == true) {rotation = 45}
-    } else {
-      rotation = -90
-    }
-   
-    square.style.left = x + 'px';
-    square.style.top = y + 'px';
-    square.style.transform = `rotate(${rotation}deg)`;
+// rotation logic based on directions
+if (left) {
+  if (up) rotation = -45;
+  else if (down) rotation = 45;
+  else rotation = 180;
+} else if (right) {
+  if (up) rotation = -135;
+  else if (down) rotation = 135;
+  else rotation = 0;
+} else if (up) {
+  rotation = -90;
+} else if (down) {
+  rotation = 90;
+}
 
+// update position
+x = parseInt(getComputedStyle(square).left) + xD;
+y = parseInt(getComputedStyle(square).top) + yD;
+
+square.style.left = x + 'px';
+square.style.top = y + 'px';
+square.style.transform = `rotate(${rotation}deg)`;
     
     console.log(square.style.transform)
     
