@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.9.3(test)";
+  let version = "1.9.4(test)";
   ver.textContent = version;
   console.log(version)
   
@@ -64,20 +64,28 @@ up = yD < 0;
 down = yD > 0;
 
 // rotation logic based on directions
+// Calculate your desired rotation based on direction (as before)
+let desiredRotation;
 if (left) {
-  if (up) rotation = -45;
-  else if (down) rotation = -135;
-  else rotation = -90;
+  if (up) desiredRotation = -45;
+  else if (down) desiredRotation = -135;
+  else desiredRotation = -90;
 } else if (right) {
-  if (up) rotation = 45;
-  else if (down) rotation = 135;
-  else rotation = 90;
+  if (up) desiredRotation = 45;
+  else if (down) desiredRotation = 135;
+  else desiredRotation = 90;
 } else if (up) {
-  rotation = 0;
+  desiredRotation = 0;
 } else if (down) {
-    if(rotation < 0) { rotation = -180 }
-    else { rotation = 180 }
+  desiredRotation = 180;
 }
+
+// Smoothly normalize rotation to avoid big jumps:
+rotation = normalizeRotation(rotation, desiredRotation);
+
+// Apply rotation style
+square.style.transform = `rotate(${rotation}deg)`;
+
 
 // update position
 x = parseInt(getComputedStyle(square).left) + xD;
@@ -85,7 +93,7 @@ y = parseInt(getComputedStyle(square).top) + yD;
 
 square.style.left = x + 'px';
 square.style.top = y + 'px';
-square.style.transform = `rotate(${rotation}deg)`;
+
     
     console.log(square.style.transform)
     
