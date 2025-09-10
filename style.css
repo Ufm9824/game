@@ -28,7 +28,7 @@
       background-color: red;
       top: 50px;
       left: 50px;
-      transition: left 0.4s, top 0.4s; /* smooth movement */
+      transition: left 0.2s, top 0.2s; /* smooth movement */
       transform-origin: center center;
       transform: rotate(0deg);
     }
