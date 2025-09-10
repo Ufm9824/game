@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.9.97(test)";
+  let version = '2.0(test)';
   ver.textContent = version;
   console.log(version)
   
@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function changeFavicon(src) {
-    let link = document.querySelector("link[rel~='icon']");
+    let link = document.querySelector('link[rel~='icon']');
     if (!link) {
-      link = document.createElement("link");
-      link.rel = "icon";
+      link = document.createElement('link');
+      link.rel = 'icon';
       document.head.appendChild(link);
     }
     link.href = src;
@@ -62,6 +62,18 @@ if (key.space) {
 }
 dashCool--
 
+let i = 0
+
+while(i < 10)
+  {
+    const obs = document.createElement('div')
+    obs.style.top = '50%'
+    obs.style.left = i*10+'%'
+    obs.style.height = '100vh'
+    obs.style.width = '10px'
+    obs.style.backgroundColor = 'pink'
+  }
+    
 left = xD < 0;
 right = xD > 0;
 up = yD < 0;
@@ -106,6 +118,6 @@ square.style.top = y + 'px';
     requestAnimationFrame(gameLoop);
   }
 
-  changeFavicon("happy.png");
+  changeFavicon('happy.png');
   requestAnimationFrame(gameLoop);
 });
