@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function changeFavicon(src) {
-    let link = document.querySelector('link[rel~='icon']');
+let link = document.querySelector("link[rel~='icon']");
     if (!link) {
       link = document.createElement('link');
       link.rel = 'icon';
