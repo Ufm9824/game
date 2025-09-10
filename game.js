@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.9.93(test)";
+  let version = "1.9.94(test)";
   ver.textContent = version;
   console.log(version)
   
@@ -56,6 +56,11 @@ if (key.space) {
     dash--;
   }
 }
+
+left = xD < 0;
+right = xD > 0;
+up = yD < 0;
+down = yD > 0;
 
 if (xD === 0 && yD === 0) {
   // Standing still, keep current rotation
