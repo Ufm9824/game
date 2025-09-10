@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.9.96(test)";
+  let version = "1.9.97(test)";
   ver.textContent = version;
   console.log(version)
   
@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
 xD = 0;
 yD = 0;
 
-if (key.w) yD -= 25;
-if (key.s) yD += 25;
-if (key.a) xD -= 25;
-if (key.d) xD += 25;
+if (key.w) yD -= 50;
+if (key.s) yD += 50;
+if (key.a) xD -= 50;
+if (key.d) xD += 50;
 
 if (key.space) {
   if (dash <= 0) dash = 5;
