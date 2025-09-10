@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let x = 100;
   let y = 100;
   let dash = 0
+  let dashCool = 0
   
   const key = {};
 
