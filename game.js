@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = "1.9.92(test)";
+  let version = "1.9.93(test)";
   ver.textContent = version;
   console.log(version)
   
@@ -36,32 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     link.href = src;
   }
-
-  function normalizeRotation(current, target) {
-  let delta = target - current;
-  
-  while (delta > 180) delta -= 360;
-  while (delta < -180) delta += 360;
-  
-  return current + delta;
-  }
-
-  function mod(n, m) {
-  return ((n % m) + m) % m;
-  }
-  
-  function shortestAngleDiff(current, target) {
-    current = mod(current, 360);
-    target = mod(target, 360);
-    
-    let delta = target - current;
-    
-    if (delta > 180) delta -= 360;
-    if (delta < -180) delta += 360;
-    
-    return delta;
-  }
-
   
   function gameLoop() {
     
@@ -102,12 +76,6 @@ if (xD === 0 && yD === 0) {
     desiredRotation = 180;
   }
 }
-
-currentRotation = 1
-    
-if(desiredRotation = 360) { currentRotation += 1 }
-
-desiredRotation += 360 * currentRotation
 
 rotation = desiredRotation
     
