@@ -50,12 +50,16 @@ if (key.d) xD += 25;
 
 if (key.space) {
   if (dash <= 0) dash = 5;
-  if (dash > 0) {
-    xD *= 5;
-    yD *= 5;
-    dash--;
+     if(dashCool <= 0){
+      if (dash > 0) {
+        xD *= 5;
+        yD *= 5;
+        if(dash === 1) {dashCool = 5}
+        dash--;
+    }
   }
 }
+dashCool--
 
 left = xD < 0;
 right = xD > 0;
