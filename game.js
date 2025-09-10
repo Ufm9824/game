@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let y = 100;
   let dash = 0
   let dashCool = 0
+  let i = 0
   
   const key = {};
 
@@ -37,7 +38,23 @@ let link = document.querySelector("link[rel~='icon']");
     }
     link.href = src;
   }
-  
+
+  function spawnObstacles() {
+    i = 0;
+      while (i < 10) {
+        const obs = document.createElement('div');
+        obs.classList.add('obstacle'); // Optionally use a CSS class
+        obs.style.top = '50%';
+        obs.style.left = i * 10 + '%';
+        obs.style.height = '100vh';
+        obs.style.width = '10px';
+        obs.style.backgroundColor = 'pink';
+        obs.style.position = 'absolute';
+        document.body.appendChild(obs);
+        i++;
+      }
+  }
+
   function gameLoop() {
     
 // calculate xD, yD (velocity)
@@ -61,19 +78,6 @@ if (key.space) {
   }
 }
 dashCool--
-
-let i = 0
-
-while(i < 10)
-  {
-    const obs = document.createElement('div')
-    obs.style.top = '50%'
-    obs.style.left = i*10+'%'
-    obs.style.height = '100vh'
-    obs.style.width = '10px'
-    obs.style.backgroundColor = 'pink'
-    i++
-  }
     
 left = xD < 0;
 right = xD > 0;
