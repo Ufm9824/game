@@ -72,6 +72,7 @@ while(i < 10)
     obs.style.height = '100vh'
     obs.style.width = '10px'
     obs.style.backgroundColor = 'pink'
+    i++
   }
     
 left = xD < 0;
