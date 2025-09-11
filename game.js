@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = '2.0(test)';
+  let version = '2.01(test)';
   ver.textContent = version;
   console.log(version)
   
@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let dash = 0
   let dashCool = 0
   let i = 0
+  let firstLoop = 0
   
   const key = {};
 
@@ -39,24 +40,27 @@ let link = document.querySelector("link[rel~='icon']");
     link.href = src;
   }
 
-  function spawnObstacles() {
-    i = 0;
-      while (i < 10) {
-        const obs = document.createElement('div');
-        obs.classList.add('obstacle'); // Optionally use a CSS class
-        obs.style.top = '50%';
-        obs.style.left = i * 10 + '%';
-        obs.style.height = '100vh';
-        obs.style.width = '10px';
-        obs.style.backgroundColor = 'pink';
-        obs.style.position = 'absolute';
-        document.body.appendChild(obs);
-        i++;
-      }
+function spawnObstacles() {
+  let i = 0;
+  while (i < 10) {
+    const obs = document.createElement('div');
+    obs.classList.add('obstacle'); // optional
+    obs.style.position = 'absolute';
+    obs.style.top = '0'; // start at the top
+    obs.style.left = i * 10 + '%';
+    obs.style.height = '100vh'; // full viewport height
+    obs.style.width = '10px';
+    obs.style.backgroundColor = 'pink';
+    document.body.appendChild(obs);
+    i++;
   }
+}
 
-  function gameLoop() {
-    
+
+function gameLoop() {
+
+if(firstLoop === 0) { spawnObstacles() }
+  
 // calculate xD, yD (velocity)
 xD = 0;
 yD = 0;
@@ -72,7 +76,7 @@ if (key.space) {
       if (dash > 0) {
         xD *= 5;
         yD *= 5;
-        if(dash === 1) {dashCool = 5}
+        if(dash === 1) {dashCool = 60}
         dash--;
     }
   }
@@ -125,4 +129,5 @@ square.style.top = y + 'px';
 
   changeFavicon('happy.png');
   requestAnimationFrame(gameLoop);
+  if(firstLoop === 0) { firstLoop = 1 }
 });
