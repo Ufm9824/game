@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let dashCool = 0
   let i = 0
   let firstLoop = 0
+  let timer = 0
   
   const key = {};
 
@@ -56,6 +57,16 @@ function spawnObstacles() {
   }
 }
 
+function cleanupObstacles() {
+  const obstacles = document.querySelectorAll('.obstacle');
+  obstacles.forEach(obs => {
+    // Example: remove obstacle if it's past a certain position
+    const left = parseInt(obs.style.left, 10);
+    if (left < -50) { // if obstacle moved off the left side
+      obs.remove();
+    }
+  });
+}
 
 function gameLoop() {
 
@@ -123,7 +134,8 @@ square.style.top = y + 'px';
 
     
     console.log(square.style.transform)
-    
+
+    cleanupObstacles()
     requestAnimationFrame(gameLoop);
   }
 
