@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = '2.01(test)';
+  let version = '2.1(test)';
   ver.textContent = version;
   console.log(version)
   
@@ -59,7 +59,7 @@ function spawnObstacles() {
 
 function gameLoop() {
 
-if(firstLoop === 0) { spawnObstacles() }
+spawnObstacles()
   
 // calculate xD, yD (velocity)
 xD = 0;
