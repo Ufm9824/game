@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ver = document.getElementById('ver');
   const square = document.getElementById('square');
   
-  let version = '2.1(test)';
+  let version = '2.2(test)';
   ver.textContent = version;
   console.log(version)
   
